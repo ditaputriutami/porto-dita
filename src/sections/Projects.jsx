@@ -2,11 +2,8 @@ import { projects } from "../data/projectsData";
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="min-h-screen flex items-center py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             My Projects

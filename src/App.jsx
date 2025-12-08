@@ -11,12 +11,15 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      {/* Main Content Wrapper - Single gradient background */}
+      <main className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+        <Footer />
+      </main>
     </div>
   );
 }

@@ -49,7 +49,7 @@ const Navbar = () => {
                 duration={500}
                 offset={-70}
                 className="relative px-4 py-2 text-gray-300 hover:text-white cursor-pointer transition-all duration-300 font-medium group"
-                activeClass="text-blue-400"
+                activeClass="active-nav-link"
                 spy={true}
               >
                 {item.name}
@@ -99,6 +99,8 @@ const Navbar = () => {
                 duration={500}
                 offset={-70}
                 className="block px-4 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-white cursor-pointer transition-all duration-300 hover:pl-6"
+                activeClass="bg-blue-500/20 pl-6"
+                spy={true}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

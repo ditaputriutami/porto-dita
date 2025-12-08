@@ -1,77 +1,75 @@
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaPhp,
-  FaPython,
-  FaJsSquare,
-  FaJava,
-  FaBootstrap,
-  FaLaravel,
-  FaNodeJs,
-  FaReact,
-  FaGithub,
-  FaFigma,
-  FaGitAlt,
-  FaDatabase,
-  FaCode,
-  FaTerminal,
-} from "react-icons/fa";
-import {
-  SiTailwindcss,
+  SiVisualstudiocode,
+  SiReact,
   SiNextdotjs,
+  SiTailwindcss,
+  SiBootstrap,
+  SiJavascript,
+  SiNodedotjs,
+  SiGithub,
+  SiAdobeillustrator,
   SiCanva,
+  SiFigma,
   SiKotlin,
   SiFirebase,
+  SiHtml5,
+  SiCss3,
   SiMysql,
   SiMariadb,
+  SiPython,
+  SiPowershell,
+  SiLaravel,
+  SiGit,
+  SiPhp,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 
 const Skills = () => {
   const skills = [
-    { name: "HTML", icon: FaHtml5, category: "Language", color: "#E34F26" },
-    { name: "CSS3", icon: FaCss3Alt, category: "Language", color: "#1572B6" },
-    { name: "PHP", icon: FaPhp, category: "Language", color: "#777BB4" },
-    { name: "Python", icon: FaPython, category: "Language", color: "#3776AB" },
+    { name: "HTML", icon: SiHtml5, category: "Language", color: "#E34F26" },
+    { name: "CSS3", icon: SiCss3, category: "Language", color: "#1572B6" },
+    { name: "PHP", icon: SiPhp, category: "Language", color: "#777BB4" },
+    { name: "Python", icon: SiPython, category: "Language", color: "#3776AB" },
     {
       name: "Javascript",
-      icon: FaJsSquare,
+      icon: SiJavascript,
       category: "Language",
       color: "#F7DF1E",
     },
     { name: "Java", icon: FaJava, category: "Language", color: "#007396" },
     {
       name: "Powershell",
-      icon: FaTerminal,
+      icon: SiPowershell,
       category: "Language",
       color: "#5391FE",
     },
     {
       name: "Bootstrap",
-      icon: FaBootstrap,
+      icon: SiBootstrap,
       category: "Framework",
       color: "#7952B3",
     },
     {
       name: "Laravel",
-      icon: FaLaravel,
+      icon: SiLaravel,
       category: "Framework",
       color: "#FF2D20",
     },
     {
       name: "Node JS",
-      icon: FaNodeJs,
+      icon: SiNodedotjs,
       category: "Framework",
       color: "#339933",
     },
     {
       name: "Visual Studio Code",
-      icon: FaCode,
+      icon: SiVisualstudiocode,
       category: "Tools",
       color: "#007ACC",
     },
     {
       name: "React JS",
-      icon: FaReact,
+      icon: SiReact,
       category: "Framework",
       color: "#61DAFB",
     },
@@ -89,18 +87,18 @@ const Skills = () => {
     },
     {
       name: "Github",
-      icon: FaGithub,
+      icon: SiGithub,
       category: "Repository",
-      color: "#FFFFFF",
+      color: "#181717",
     },
     {
       name: "Adobe Illustrator",
-      icon: FaCode,
+      icon: SiAdobeillustrator,
       category: "Design App",
       color: "#FF9A00",
     },
     { name: "Canva", icon: SiCanva, category: "Design App", color: "#00C4CC" },
-    { name: "Figma", icon: FaFigma, category: "Design App", color: "#F24E1E" },
+    { name: "Figma", icon: SiFigma, category: "Design App", color: "#F24E1E" },
     { name: "Kotlin", icon: SiKotlin, category: "Language", color: "#7F52FF" },
     {
       name: "Firebase",
@@ -113,9 +111,9 @@ const Skills = () => {
       name: "MariaDB",
       icon: SiMariadb,
       category: "Database",
-      color: "#C0765A",
+      color: "#003545",
     },
-    { name: "Git", icon: FaGitAlt, category: "Tools", color: "#F05032" },
+    { name: "Git", icon: SiGit, category: "Tools", color: "#F05032" },
   ];
 
   return (
@@ -133,7 +131,7 @@ const Skills = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {skills.map((skill, index) => {
-            const Icon = skill.icon;
+            const IconComponent = skill.icon;
             return (
               <div
                 key={index}
@@ -141,7 +139,7 @@ const Skills = () => {
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="text-5xl transition-transform duration-300 group-hover:scale-110">
-                    <Icon style={{ color: skill.color }} />
+                    <IconComponent style={{ color: skill.color }} />
                   </div>
                   <div className="text-center">
                     <h3 className="text-sm font-semibold text-white mb-1">
