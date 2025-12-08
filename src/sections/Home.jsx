@@ -23,12 +23,11 @@ const Home = () => {
             Hi, I'm <span className="text-blue-400">Dita Putri Utami</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-100 mb-4 drop-shadow-lg">
-            Accounting Information System, Data Analyst, Accountant
+            Accounting Information Systems Student, Data Analyst, Accountant
           </p>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8 drop-shadow-md">
-            Passionate about creating beautiful, functional, and user-friendly
-            applications. I turn ideas into reality through clean code and
-            modern design.
+            Combining accounting expertise with system development to create
+            smarter and more reliable digital solutions
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
