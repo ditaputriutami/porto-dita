@@ -7,13 +7,11 @@ porto-ditaa/
 ├── public/                    # Static assets
 ├── src/
 │   ├── assets/               # Images, icons, fonts
-│   │   └── react.svg
 │   │
 │   ├── components/           # Reusable UI components
 │   │   ├── Navbar.jsx       # Navigation bar dengan smooth scroll
 │   │   ├── Footer.jsx       # Footer dengan social links
-│   │   ├── Threads.jsx      # WebGL background animation
-│   │   └── DarkVeil.jsx     # Alternative WebGL background
+│   │   └── Threads.jsx      # WebGL background animation (optimized)
 │   │
 │   ├── sections/            # Page sections (main content)
 │   │   ├── Home.jsx         # Hero section dengan animated background
@@ -46,8 +44,7 @@ Komponen UI yang reusable dan dapat digunakan di berbagai tempat:
 
 - **Navbar.jsx** - Navigation bar dengan react-scroll untuk smooth scrolling
 - **Footer.jsx** - Footer dengan quick links dan social media icons
-- **Threads.jsx** - WebGL animated background (current)
-- **DarkVeil.jsx** - Alternative WebGL background
+- **Threads.jsx** - WebGL animated background (optimized untuk performa)
 
 ### `/src/sections/`
 

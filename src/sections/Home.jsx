@@ -1,10 +1,11 @@
 import Threads from "../components/Threads";
+import RotatingText from "../components/RotatingText";
 
 const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
     >
       {/* Threads Background */}
       <div className="absolute inset-0 w-full h-full">
@@ -19,12 +20,20 @@ const Home = () => {
       {/* Content Overlay */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 drop-shadow-2xl">
             Hi, I'm <span className="text-blue-400">Dita Putri Utami</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-100 mb-4 drop-shadow-lg">
-            Accounting Information Systems Student, Data Analyst, Accountant
-          </p>
+          <div className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg flex items-center justify-start gap-3 w-full max-w-4xl mx-auto">
+            <span className="inline-block align-middle">I'm A</span>
+            <RotatingText
+              texts={[
+                "Data Analyst",
+                "Accountant",
+                "Accounting Information Systems Student",
+              ]}
+              rotationInterval={3000}
+            />
+          </div>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8 drop-shadow-md">
             Combining accounting expertise with system development to create
             smarter and more reliable digital solutions

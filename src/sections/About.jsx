@@ -1,10 +1,7 @@
 const About = () => {
   return (
-    <section
-      id="about"
-      className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="min-h-screen flex items-center py-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About Me
@@ -16,9 +13,9 @@ const About = () => {
           {/* Image */}
           <div className="flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 shadow-2xl transform hover:scale-105 transition duration-300">
-              <img 
-                src="/Profile.jpg" 
-                alt="Profile Photo" 
+              <img
+                src="/Profile.jpg"
+                alt="Profile Photo"
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
@@ -30,22 +27,22 @@ const About = () => {
               Data Analyst & Accounting Information Systems Student
             </h3>
             <p className="text-gray-200 mb-4 leading-relaxed">
-              I'm a dedicated Accounting Information Systems student with a passion 
-              for transforming financial data into actionable insights. I specialize 
-              in bridging the gap between accounting principles and data analytics 
-              to drive smarter business decisions.
+              I'm a dedicated Accounting Information Systems student with a
+              passion for transforming financial data into actionable insights.
+              I specialize in bridging the gap between accounting principles and
+              data analytics to drive smarter business decisions.
             </p>
             <p className="text-gray-200 mb-4 leading-relaxed">
-              My journey combines the precision of accounting with the power of 
-              data analysis. I leverage tools like Excel, Python, SQL, and Power BI 
-              to analyze financial patterns, automate reporting processes, and 
-              create data-driven solutions that enhance financial transparency and 
-              operational efficiency.
+              My journey combines the precision of accounting with the power of
+              data analysis. I leverage tools like Excel, Python, SQL, and Power
+              BI to analyze financial patterns, automate reporting processes,
+              and create data-driven solutions that enhance financial
+              transparency and operational efficiency.
             </p>
             <p className="text-gray-200 mb-6 leading-relaxed">
-              Beyond numbers and spreadsheets, I'm passionate about developing 
-              accounting information systems that streamline workflows, improve 
-              accuracy, and provide real-time financial insights for better 
+              Beyond numbers and spreadsheets, I'm passionate about developing
+              accounting information systems that streamline workflows, improve
+              accuracy, and provide real-time financial insights for better
               strategic planning.
             </p>
 
