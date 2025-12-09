@@ -16,78 +16,79 @@ import {
   FaTerminal,
 } from "react-icons/fa";
 import { SiTailwindcss, SiCanva, SiMysql, SiMariadb } from "react-icons/si";
+import ChromaGrid from "../components/ChromaGrid";
 
 const Skills = () => {
   const skills = [
-    { name: "HTML", icon: FaHtml5, category: "Language", color: "#E34F26" },
-    { name: "CSS3", icon: FaCss3Alt, category: "Language", color: "#1572B6" },
-    { name: "PHP", icon: FaPhp, category: "Language", color: "#777BB4" },
-    { name: "Python", icon: FaPython, category: "Language", color: "#3776AB" },
+    { title: "HTML", icon: FaHtml5, subtitle: "Language", color: "#E34F26" },
+    { title: "CSS3", icon: FaCss3Alt, subtitle: "Language", color: "#1572B6" },
+    { title: "PHP", icon: FaPhp, subtitle: "Language", color: "#777BB4" },
+    { title: "Python", icon: FaPython, subtitle: "Language", color: "#3776AB" },
     {
-      name: "Javascript",
+      title: "Javascript",
       icon: FaJsSquare,
-      category: "Language",
+      subtitle: "Language",
       color: "#F7DF1E",
     },
-    { name: "Java", icon: FaJava, category: "Language", color: "#007396" },
+    { title: "Java", icon: FaJava, subtitle: "Language", color: "#007396" },
     {
-      name: "Powershell",
+      title: "Powershell",
       icon: FaTerminal,
-      category: "Language",
+      subtitle: "Language",
       color: "#5391FE",
     },
     {
-      name: "Bootstrap",
+      title: "Bootstrap",
       icon: FaBootstrap,
-      category: "Framework",
+      subtitle: "Framework",
       color: "#7952B3",
     },
     {
-      name: "Laravel",
+      title: "Laravel",
       icon: FaLaravel,
-      category: "Framework",
+      subtitle: "Framework",
       color: "#FF2D20",
     },
     {
-      name: "Node JS",
+      title: "Node JS",
       icon: FaNodeJs,
-      category: "Framework",
+      subtitle: "Framework",
       color: "#339933",
     },
     {
-      name: "Visual Studio Code",
+      title: "Visual Studio Code",
       icon: FaCode,
-      category: "Tools",
+      subtitle: "Tools",
       color: "#007ACC",
     },
     {
-      name: "React JS",
+      title: "React JS",
       icon: FaReact,
-      category: "Framework",
+      subtitle: "Framework",
       color: "#61DAFB",
     },
     {
-      name: "Tailwind CSS",
+      title: "Tailwind CSS",
       icon: SiTailwindcss,
-      category: "Framework",
+      subtitle: "Framework",
       color: "#06B6D4",
     },
     {
-      name: "Github",
+      title: "Github",
       icon: FaGithub,
-      category: "Repository",
+      subtitle: "Repository",
       color: "#FFFFFF",
     },
-    { name: "Canva", icon: SiCanva, category: "Design App", color: "#00C4CC" },
-    { name: "Figma", icon: FaFigma, category: "Design App", color: "#F24E1E" },
-    { name: "MySQL", icon: SiMysql, category: "Database", color: "#4479A1" },
+    { title: "Canva", icon: SiCanva, subtitle: "Design App", color: "#00C4CC" },
+    { title: "Figma", icon: FaFigma, subtitle: "Design App", color: "#F24E1E" },
+    { title: "MySQL", icon: SiMysql, subtitle: "Database", color: "#4479A1" },
     {
-      name: "MariaDB",
+      title: "MariaDB",
       icon: SiMariadb,
-      category: "Database",
+      subtitle: "Database",
       color: "#C0765A",
     },
-    { name: "Git", icon: FaGitAlt, category: "Tools", color: "#F05032" },
+    { title: "Git", icon: FaGitAlt, subtitle: "Tools", color: "#F05032" },
   ];
 
   return (
@@ -103,49 +104,13 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          {skills.map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-              <div
-                key={index}
-                className="group relative bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-slate-700/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/20 border border-slate-700/50 hover:border-blue-500/50"
-              >
-                <div className="flex flex-col items-center gap-3">
-                  <div className="text-5xl transition-transform duration-300 group-hover:scale-110">
-                    <Icon style={{ color: skill.color }} />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-sm font-semibold text-white mb-1">
-                      {skill.name}
-                    </h3>
-                    <p className="text-xs text-gray-400">{skill.category}</p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "Language",
-              "Framework",
-              "Tools",
-              "Database",
-              "Design App",
-              "Repository",
-            ].map((category, idx) => (
-              <span
-                key={idx}
-                className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg text-sm font-bold hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg"
-              >
-                {category}
-              </span>
-            ))}
-          </div>
-        </div>
+        <ChromaGrid
+          items={skills}
+          radius={400}
+          damping={0.35}
+          fadeOut={0.5}
+          ease="power3.out"
+        />
       </div>
     </section>
   );
