@@ -12,19 +12,10 @@ import {
   FaGithub,
   FaFigma,
   FaGitAlt,
-  FaDatabase,
   FaCode,
   FaTerminal,
 } from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiNextdotjs,
-  SiCanva,
-  SiKotlin,
-  SiFirebase,
-  SiMysql,
-  SiMariadb,
-} from "react-icons/si";
+import { SiTailwindcss, SiCanva, SiMysql, SiMariadb } from "react-icons/si";
 
 const Skills = () => {
   const skills = [
@@ -76,12 +67,6 @@ const Skills = () => {
       color: "#61DAFB",
     },
     {
-      name: "Next JS",
-      icon: SiNextdotjs,
-      category: "Framework",
-      color: "#FFFFFF",
-    },
-    {
       name: "Tailwind CSS",
       icon: SiTailwindcss,
       category: "Framework",
@@ -93,21 +78,8 @@ const Skills = () => {
       category: "Repository",
       color: "#FFFFFF",
     },
-    {
-      name: "Adobe Illustrator",
-      icon: FaCode,
-      category: "Design App",
-      color: "#FF9A00",
-    },
     { name: "Canva", icon: SiCanva, category: "Design App", color: "#00C4CC" },
     { name: "Figma", icon: FaFigma, category: "Design App", color: "#F24E1E" },
-    { name: "Kotlin", icon: SiKotlin, category: "Language", color: "#7F52FF" },
-    {
-      name: "Firebase",
-      icon: SiFirebase,
-      category: "Framework",
-      color: "#FFCA28",
-    },
     { name: "MySQL", icon: SiMysql, category: "Database", color: "#4479A1" },
     {
       name: "MariaDB",
