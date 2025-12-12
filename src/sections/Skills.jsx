@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -16,7 +17,7 @@ import {
   FaTerminal,
 } from "react-icons/fa";
 import { SiTailwindcss, SiCanva, SiMysql, SiMariadb } from "react-icons/si";
-import ChromaGrid from "../components/ChromaGrid";
+import LogoLoop from "../components/LogoLoop";
 
 const Skills = () => {
   const skills = [
@@ -91,10 +92,30 @@ const Skills = () => {
     { title: "Git", icon: FaGitAlt, subtitle: "Tools", color: "#F05032" },
   ];
 
+  // Convert skills to LogoLoop format with React icon nodes
+  const midPoint = Math.ceil(skills.length / 2);
+  const firstRowLogos = skills.slice(0, midPoint).map((skill) => ({
+    node: <skill.icon />,
+    title: skill.title,
+    color: skill.color,
+  }));
+
+  const secondRowLogos = skills.slice(midPoint).map((skill) => ({
+    node: <skill.icon />,
+    title: skill.title,
+    color: skill.color,
+  }));
+
   return (
     <section id="skills" className="min-h-screen flex items-center py-20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="w-full">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Tools & Technologies
           </h2>
@@ -102,15 +123,41 @@ const Skills = () => {
           <p className="text-gray-200 max-w-2xl mx-auto">
             My Professional Skills
           </p>
-        </div>
+        </motion.div>
 
-        <ChromaGrid
-          items={skills}
-          radius={400}
-          damping={0.35}
-          fadeOut={0.5}
-          ease="power3.out"
-        />
+        <motion.div
+          className="space-y-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
+          {/* First Row - Left to Right */}
+          <LogoLoop
+            logos={firstRowLogos}
+            speed={50}
+            direction="left"
+            logoHeight={100}
+            gap={16}
+            fadeOut={true}
+            fadeOutColor="#1e3a8a"
+            scaleOnHover={true}
+            pauseOnHover={true}
+          />
+
+          {/* Second Row - Right to Left */}
+          <LogoLoop
+            logos={secondRowLogos}
+            speed={50}
+            direction="right"
+            logoHeight={100}
+            gap={16}
+            fadeOut={true}
+            fadeOutColor="#1e3a8a"
+            scaleOnHover={true}
+            pauseOnHover={true}
+          />
+        </motion.div>
       </div>
     </section>
   );

@@ -1,10 +1,17 @@
+import { motion } from "framer-motion";
 import { projects } from "../data/projectsData";
 
 const Projects = () => {
   return (
     <section id="projects" className="min-h-screen flex items-center py-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             My Projects
           </h2>
@@ -13,13 +20,17 @@ const Projects = () => {
             Here are some of my recent works. Each project showcases different
             skills and technologies.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <motion.div
               key={project.id}
               className="bg-blue-500/10 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 border border-blue-400/20"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               {/* Project Image */}
               <div className="relative overflow-hidden h-48 bg-gradient-to-br from-blue-400 to-indigo-600">
@@ -71,7 +82,7 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

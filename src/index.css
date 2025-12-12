@@ -28,6 +28,14 @@ h6 {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Smooth scrolling for all browsers */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Custom Animations */
@@ -45,7 +53,18 @@ html {
 .animate-fade-in-up {
   animation: fade-in-up 1s ease-out;
 }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
+.animate-scroll {
+  animation: scroll linear infinite;
+}
 /* Active Navigation Link */
 .active-nav-link span {
   width: 100% !important;
