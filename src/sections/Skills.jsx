@@ -16,7 +16,7 @@ import {
   FaTerminal,
 } from "react-icons/fa";
 import { SiTailwindcss, SiCanva, SiMysql, SiMariadb } from "react-icons/si";
-import ChromaGrid from "../components/ChromaGrid";
+import LogoLoop from "../components/LogoLoop";
 
 const Skills = () => {
   const skills = [
@@ -91,9 +91,23 @@ const Skills = () => {
     { title: "Git", icon: FaGitAlt, subtitle: "Tools", color: "#F05032" },
   ];
 
+  // Convert skills to LogoLoop format with React icon nodes
+  const midPoint = Math.ceil(skills.length / 2);
+  const firstRowLogos = skills.slice(0, midPoint).map((skill) => ({
+    node: <skill.icon />,
+    title: skill.title,
+    color: skill.color,
+  }));
+
+  const secondRowLogos = skills.slice(midPoint).map((skill) => ({
+    node: <skill.icon />,
+    title: skill.title,
+    color: skill.color,
+  }));
+
   return (
     <section id="skills" className="min-h-screen flex items-center py-20">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Tools & Technologies
@@ -104,13 +118,33 @@ const Skills = () => {
           </p>
         </div>
 
-        <ChromaGrid
-          items={skills}
-          radius={400}
-          damping={0.35}
-          fadeOut={0.5}
-          ease="power3.out"
-        />
+        <div className="space-y-4">
+          {/* First Row - Left to Right */}
+          <LogoLoop
+            logos={firstRowLogos}
+            speed={50}
+            direction="left"
+            logoHeight={100}
+            gap={16}
+            fadeOut={true}
+            fadeOutColor="#1e3a8a"
+            scaleOnHover={true}
+            pauseOnHover={true}
+          />
+
+          {/* Second Row - Right to Left */}
+          <LogoLoop
+            logos={secondRowLogos}
+            speed={50}
+            direction="right"
+            logoHeight={100}
+            gap={16}
+            fadeOut={true}
+            fadeOutColor="#1e3a8a"
+            scaleOnHover={true}
+            pauseOnHover={true}
+          />
+        </div>
       </div>
     </section>
   );

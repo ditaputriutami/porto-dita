@@ -1,7 +1,31 @@
+import { useEffect, useRef } from "react";
 import Threads from "../components/Threads";
-import RotatingText from "../components/RotatingText";
+import Typed from "typed.js";
 
 const Home = () => {
+  const typedElement = useRef(null);
+  const typed = useRef(null);
+
+  useEffect(() => {
+    const options = {
+      strings: [
+        "Accounting Information Systems Student",
+        "Data Analyst",
+        "Accountant",
+      ],
+      typeSpeed: 100,
+      backSpeed: 100,
+      backDelay: 1000,
+      loop: true,
+    };
+
+    typed.current = new Typed(typedElement.current, options);
+
+    return () => {
+      typed.current.destroy();
+    };
+  }, []);
+
   return (
     <section
       id="home"
@@ -23,16 +47,12 @@ const Home = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 drop-shadow-2xl">
             Hi, I'm <span className="text-blue-400">Dita Putri Utami</span>
           </h1>
-          <div className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg flex items-center justify-start gap-3 w-full max-w-4xl mx-auto">
-            <span className="inline-block align-middle">I'm A</span>
-            <RotatingText
-              texts={[
-                "Data Analyst",
-                "Accountant",
-                "Accounting Information Systems Student",
-              ]}
-              rotationInterval={3000}
-            />
+          <div className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg flex items-center justify-center gap-3 w-full max-w-4xl mx-auto">
+            <span className="inline-block align-middle"></span>
+            <span
+              ref={typedElement}
+              className="inline-block text-blue-400 font-bold text-2xl md:text-3xl align-middle"
+            ></span>
           </div>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-8 drop-shadow-md">
             Combining accounting expertise with system development to create
