@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaLinkedin,
@@ -16,9 +17,21 @@ import {
 const About = () => {
   return (
     <section id="about" className="min-h-screen flex items-center py-20 px-4">
-      <div className="w-full px-8">
+      <motion.div
+        className="w-full px-8"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         {/* Top Section - About & Profile in One Box */}
-        <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-12 border border-slate-700/50 mb-8">
+        <motion.div
+          className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-12 border border-slate-700/50 mb-8"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <div className="bg-gradient-to-r from-blue-500 to-blue-900 text-white px-6 py-2 rounded-r-full font-semibold inline-block -ml-12 mb-8">
             About me
           </div>
@@ -84,8 +97,8 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,13 @@ const Contact = () => {
   return (
     <section id="contact" className="min-h-screen flex items-center py-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get In Touch
           </h2>
@@ -40,11 +47,16 @@ const Contact = () => {
             Have a project in mind or just want to say hi? Feel free to reach
             out!
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <h3 className="text-2xl font-bold text-white mb-6">
               Contact Information
             </h3>
@@ -172,10 +184,16 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="bg-blue-500/10 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-blue-400/20">
+          <motion.div
+            className="bg-blue-500/10 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-blue-400/20"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
@@ -267,7 +285,7 @@ const Contact = () => {
                 </div>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

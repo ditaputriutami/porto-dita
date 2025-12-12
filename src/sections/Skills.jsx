@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -108,7 +109,13 @@ const Skills = () => {
   return (
     <section id="skills" className="min-h-screen flex items-center py-20">
       <div className="w-full">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Tools & Technologies
           </h2>
@@ -116,9 +123,15 @@ const Skills = () => {
           <p className="text-gray-200 max-w-2xl mx-auto">
             My Professional Skills
           </p>
-        </div>
+        </motion.div>
 
-        <div className="space-y-4">
+        <motion.div
+          className="space-y-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
           {/* First Row - Left to Right */}
           <LogoLoop
             logos={firstRowLogos}
@@ -144,7 +157,7 @@ const Skills = () => {
             scaleOnHover={true}
             pauseOnHover={true}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

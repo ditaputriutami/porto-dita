@@ -28,6 +28,14 @@ h6 {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Smooth scrolling for all browsers */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Custom Animations */
