@@ -322,7 +322,7 @@ export const LogoLoop = memo(
         const isNodeItem = "node" in item;
 
         const content = isNodeItem ? (
-          <div className="flex items-center justify-center gap-3 px-6 py-3 bg-slate-800/50 backdrop-blur-sm rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+          <div className="flex items-center justify-center gap-3 px-6 py-3 bg-transparent backdrop-blur-sm rounded-lg border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
             <span
               className={cx(
                 "inline-flex items-center text-4xl",
