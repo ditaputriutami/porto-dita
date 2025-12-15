@@ -20,32 +20,25 @@ const About = () => {
       id="about"
       className="min-h-screen flex items-center py-10 sm:py-20 px-4"
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <motion.div
+        className="w-full px-2 sm:px-8"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {/* Top Section - About & Profile in One Box */}
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="text-4xl md:text-5xl font-bold bg-blue-400 bg-clip-text text-transparent mb-4">
-            About Me
-          </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
-            Get to know more about my background, skills, and what drives my
-            passion for technology and data.
-          </p>
-        </motion.div>
-
-        {/* Content Section - About & Profile */}
-        <motion.div
-          className="bg-transparent backdrop-blur-sm rounded-3xl p-4 sm:p-8 md:p-12 border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300"
+          className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm rounded-3xl p-4 sm:p-8 md:p-12 border border-slate-700/50 mb-8"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
+          <div className="bg-gradient-to-r from-blue-500 to-blue-900 text-white px-4 sm:px-6 py-2 rounded-r-full font-semibold inline-block -ml-4 sm:-ml-8 md:-ml-12 mb-6 sm:mb-8 text-sm sm:text-base">
+            About me
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
             {/* Left - About Content */}
             <div className="order-2 md:order-1">
@@ -71,7 +64,7 @@ const About = () => {
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                <div className="bg-transparent backdrop-blur-sm p-3 sm:p-4 rounded-xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300">
+                <div className="bg-slate-900/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
                   <h3 className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">
                     2+
                   </h3>
@@ -79,7 +72,7 @@ const About = () => {
                     Years Experience
                   </p>
                 </div>
-                <div className="bg-transparent backdrop-blur-sm p-3 sm:p-4 rounded-xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300">
+                <div className="bg-slate-900/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
                   <h3 className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">
                     24/7
                   </h3>
@@ -87,7 +80,7 @@ const About = () => {
                     Support Available
                   </p>
                 </div>
-                <div className="bg-transparent backdrop-blur-sm p-3 sm:p-4 rounded-xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300">
+                <div className="bg-slate-900/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
                   <h3 className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">
                     15+
                   </h3>
@@ -95,7 +88,7 @@ const About = () => {
                     Projects Completed
                   </p>
                 </div>
-                <div className="bg-transparent backdrop-blur-sm p-3 sm:p-4 rounded-xl border-2 border-blue-400/30 hover:border-blue-400/50 transition-all duration-300">
+                <div className="bg-slate-900/50 backdrop-blur-sm p-3 sm:p-4 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300">
                   <h3 className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">
                     100%
                   </h3>
@@ -109,8 +102,8 @@ const About = () => {
             {/* Right - Profile Photo */}
             <div className="flex items-center justify-center order-1 md:order-2 mb-6 md:mb-0">
               <div className="relative">
-                <div className="w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] rounded-xl border-2 border-blue-400/50 p-1 shadow-2xl transform hover:scale-105 transition duration-500">
-                  <div className="w-full h-full rounded-lg overflow-hidden">
+                <div className="w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] bg-gradient-to-br from-cyan-400 to-blue-500 p-1 shadow-2xl transform hover:scale-105 transition duration-500">
+                  <div className="w-full h-full rounded-[40%_60%_70%_30%/40%_50%_60%_50%] overflow-hidden">
                     <img
                       src="/Profile.jpg"
                       alt="Profile Photo"
@@ -125,7 +118,7 @@ const About = () => {
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
