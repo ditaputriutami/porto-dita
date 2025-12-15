@@ -88,13 +88,13 @@ const Home = () => {
           >
             <a
               href="#projects"
-              className="px-8 py-3 bg-transparent border-2 border-white-400 text-white rounded-lg font-semibold hover:bg-white-400/10 hover:border-white-300 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              className="px-8 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               View My Work
             </a>
             <a
               href="#contact"
-              className="px-8 py-3 bg-transparent border-2 border-white-400 text-white rounded-lg font-semibold hover:bg-white-400/10 hover:border-white-300 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              className="px-8 py-3 bg-white/90 backdrop-blur-sm text-blue-600 border-2 border-white rounded-lg font-semibold hover:bg-white transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               Contact Me
             </a>
@@ -107,7 +107,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             <a
-              href="https://github.com/ditaputriutami"
+              href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-200 hover:text-white transition transform hover:scale-110 drop-shadow-lg"
@@ -117,7 +117,7 @@ const Home = () => {
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/dita-putri-utami"
+              href="https://linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-200 hover:text-white transition transform hover:scale-110 drop-shadow-lg"
@@ -127,7 +127,7 @@ const Home = () => {
               </svg>
             </a>
             <a
-              href="mailto:ditaputriutami .com"
+              href="mailto:your.email@example.com"
               className="text-gray-200 hover:text-white transition transform hover:scale-110 drop-shadow-lg"
             >
               <svg
