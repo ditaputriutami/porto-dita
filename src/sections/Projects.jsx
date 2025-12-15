@@ -26,9 +26,9 @@ const Projects = () => {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-blue-400 bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold bg-blue-400 bg-clip-text text-transparent mb-4">
             Portfolio Showcase
-          </h1>
+          </h2>
           <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
             Explore my journey through projects, certifications, and technical
             expertise. Each section represents a milestone in my continuous
