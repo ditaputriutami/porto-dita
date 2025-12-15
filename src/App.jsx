@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Navbar />
       {/* Main Content Wrapper - Single gradient background */}
-      <main className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <main className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
         <Home />
         <About />
         <Skills />

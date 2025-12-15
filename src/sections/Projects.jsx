@@ -1,155 +1,239 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { projects } from "../data/projectsData";
+import { certificates } from "../data/certificatesData";
+import ProjectDetailFullPage from "../components/ProjectDetailFullPage";
+import { FiCode, FiAward, FiExternalLink } from "react-icons/fi";
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [activeTab, setActiveTab] = useState("projects"); // projects, certificates, techstack
+  const [showAllCerts, setShowAllCerts] = useState(false);
+
+  const tabs = [
+    { id: "projects", label: "Projects", icon: FiCode },
+    { id: "certificates", label: "Certificates", icon: FiAward },
+  ];
+
   return (
     <section id="projects" className="min-h-screen flex items-center py-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My Projects
-          </h2>
-          <div className="w-20 h-1 bg-blue-400 mx-auto mb-4"></div>
-          <p className="text-gray-200 max-w-2xl mx-auto">
-            Here are some of my recent works. Each project showcases different
-            skills and technologies.
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
+            Portfolio Showcase
+          </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
+            Explore my journey through projects, certifications, and technical
+            expertise. Each section represents a milestone in my continuous
+            learning path.
           </p>
         </motion.div>
 
-        {/* Projects with Laptop Mockup Layout */}
-        <div className="space-y-20 md:space-y-32">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center ${
-                index % 2 === 0 ? "" : "lg:flex-row-reverse"
-              }`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.7 }}
-            >
-              {/* Laptop Mockup */}
-              <div
-                className={`${
-                  index % 2 === 0 ? "order-2 lg:order-1" : "order-2"
-                } flex justify-center`}
-              >
-                <motion.div
-                  className="relative w-full max-w-lg"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {/* Laptop Frame */}
-                  <div className="relative">
-                    {/* Screen */}
-                    <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-t-2xl border-4 border-slate-700 p-3 shadow-2xl">
-                      <div className="bg-slate-950 rounded-lg overflow-hidden aspect-video">
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </div>
-                    {/* Keyboard Base */}
-                    <div className="bg-gradient-to-b from-slate-700 to-slate-800 h-4 rounded-b-2xl shadow-lg"></div>
-                    <div className="bg-slate-800 h-2 w-[110%] -ml-[5%] rounded-b-3xl shadow-2xl"></div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Project Content */}
-              <div
-                className={`${
-                  index % 2 === 0 ? "order-1 lg:order-2" : "order-1"
+        {/* Tab Navigation */}
+        <motion.div
+          className="flex justify-center gap-4 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all transform ${
+                  activeTab === tab.id
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-500/50 scale-105"
+                    : "bg-slate-700/50 text-gray-300 hover:bg-slate-600/70"
                 }`}
               >
-                <div className="bg-purple-600/20 border border-purple-500/50 backdrop-blur-sm px-4 py-2 rounded-full inline-block mb-4 sm:mb-6">
-                  <span className="text-purple-300 font-semibold text-sm">
-                    {project.category || "Web Development"}
-                  </span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                  {project.title}
-                </h3>
-                <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
-                  {project.description}
-                </p>
+                <Icon size={18} />
+                <span className="hidden sm:inline">{tab.label}</span>
+              </button>
+            );
+          })}
+        </motion.div>
 
-                {/* Research Goals / Features */}
-                {project.features && (
-                  <div className="mb-6">
-                    <h4 className="text-lg sm:text-xl font-semibold text-white mb-3">
-                      Key Features
-                    </h4>
-                    <ul className="space-y-2 sm:space-y-3 text-gray-300">
-                      {project.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="text-blue-400 mr-2 mt-1">•</span>
-                          <span className="text-sm sm:text-base">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-blue-500/30 text-blue-200 text-xs sm:text-sm rounded-full font-medium border border-blue-400/30"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition font-medium text-sm sm:text-base"
-                  >
-                    View Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium text-sm sm:text-base"
-                  >
-                    Live Demo
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* View More Button */}
-        <div className="text-center mt-12">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        {/* Projects Grid */}
+        {activeTab === "projects" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            View More on GitHub
-          </a>
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {projects.map((project, idx) => (
+                <motion.div
+                  key={project.id}
+                  className="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-xl overflow-hidden border border-blue-400/20 hover:border-blue-400/50 transition-all backdrop-blur-sm hover:shadow-xl hover:shadow-blue-500/20"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ translateY: -5 }}
+                >
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden bg-slate-900">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
+
+                    {/* Technology Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="text-xs px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full border border-blue-400/30"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="text-xs px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full border border-purple-400/30">
+                          +{project.technologies.length - 3} more
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="flex-1 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+                      >
+                        Details
+                      </button>
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 px-3 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1"
+                      >
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                        <span className="hidden sm:inline">Live Demo</span>
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Certificates Section */}
+        {activeTab === "certificates" && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {certificates
+                .slice(0, showAllCerts ? certificates.length : 6)
+                .map((cert, idx) => (
+                  <motion.div
+                    key={cert.id}
+                    className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-xl border border-purple-400/20 p-6 hover:border-purple-400/50 transition-all"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    whileHover={{ translateY: -5 }}
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                          <FiAward className="text-purple-400" size={24} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-bold text-white">
+                            {cert.title}
+                          </h3>
+                          <p className="text-purple-300 text-xs font-semibold">
+                            {cert.issuer}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+                      {cert.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="text-blue-400 text-xs font-semibold">
+                        {cert.date}
+                      </div>
+                      <a
+                        href={cert.certificateFile}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-purple-400 hover:text-purple-300 transition flex items-center gap-1"
+                      >
+                        <span className="text-xs font-medium">View</span>
+                        <FiExternalLink size={14} />
+                      </a>
+                    </div>
+                  </motion.div>
+                ))}
+            </div>
+
+            {/* View More Button */}
+            {certificates.length > 6 && (
+              <div className="text-center">
+                <button
+                  onClick={() => setShowAllCerts(!showAllCerts)}
+                  className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all transform hover:scale-105"
+                >
+                  {showAllCerts ? "Show Less" : "View More Certificates"}
+                </button>
+              </div>
+            )}
+          </motion.div>
+        )}
       </div>
+
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <ProjectDetailFullPage
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };
