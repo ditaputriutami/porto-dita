@@ -26,7 +26,7 @@ const Projects = () => {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold bg-blue-400 bg-clip-text text-transparent mb-4">
             Portfolio Showcase
           </h1>
           <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
