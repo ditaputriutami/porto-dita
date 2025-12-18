@@ -6,14 +6,16 @@ import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const project = projects.find((p) => p.id === parseInt(id));
 
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Project Not Found</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">
+            Project Not Found
+          </h2>
           <button
             onClick={() => navigate("/")}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
@@ -31,13 +33,13 @@ const ProjectDetail = () => {
         {/* Back Button */}
         <motion.button
           onClick={() => navigate("/#projects")}
-          className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition mb-12 group"
+          className="flex items-center gap-2 p-2 border-2 border-blue-400 text-blue-400 rounded-lg hover:border-blue-500 hover:text-blue-500 transition mb-12 group"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
           <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
-          <span className="font-semibold">Back to Projects</span>
+          <span className="font-regular">Back to Projects</span>
         </motion.button>
 
         {/* Main Content */}
@@ -51,7 +53,7 @@ const ProjectDetail = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {project.title}
             </h1>
-            
+
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
               {project.fullDescription || project.description}
             </p>

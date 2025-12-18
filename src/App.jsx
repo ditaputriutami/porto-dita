@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -33,7 +38,7 @@ function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <main className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
         <Home />
         <About />
         <Skills />

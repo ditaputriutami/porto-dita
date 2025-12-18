@@ -15,6 +15,8 @@ import {
   FaGitAlt,
   FaCode,
   FaTerminal,
+  FaChartBar,
+  FaCalculator,
 } from "react-icons/fa";
 import { SiTailwindcss, SiCanva, SiMysql, SiMariadb } from "react-icons/si";
 import LogoLoop from "../components/LogoLoop";
@@ -109,7 +111,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col items-center justify-center py-20 px-4"
+      className="min-h-screen flex flex-col items-center justify-center py-20 px-4 border-t border-b border-blue-400/30"
     >
       {/* Header Section */}
       <motion.div
@@ -131,21 +133,23 @@ const Skills = () => {
         {/* Expertise Labels */}
         <div className="flex flex-wrap gap-4 justify-center">
           <motion.div
-            className="bg-transparent border border-blue-500/50 backdrop-blur-sm px-6 py-3 rounded-full"
-            whileHover={{ scale: 1.05 }}
+            className="bg-blue-500/10 border border-blue-400/30 backdrop-blur-sm px-8 py-4 rounded-full flex items-center gap-3"
+            whileHover={{ scale: 1.05, borderColor: "rgba(96, 165, 250, 0.5)" }}
             transition={{ duration: 0.2 }}
           >
-            <span className="text-blue-300 font-semibold text-sm md:text-base">
-              📊 Data Analyst
+            <FaChartBar className="text-2xl text-blue-400" />
+            <span className="text-blue-200 font-medium text-base md:text-lg">
+              Data Analyst
             </span>
           </motion.div>
           <motion.div
-            className="bg-transparent border border-green-500/50 backdrop-blur-sm px-6 py-3 rounded-full"
-            whileHover={{ scale: 1.05 }}
+            className="bg-blue-500/10 border border-blue-400/30 backdrop-blur-sm px-8 py-4 rounded-full flex items-center gap-3"
+            whileHover={{ scale: 1.05, borderColor: "rgba(96, 165, 250, 0.5)" }}
             transition={{ duration: 0.2 }}
           >
-            <span className="text-green-300 font-semibold text-sm md:text-base">
-              💼 Accounting
+            <FaCalculator className="text-2xl text-blue-400" />
+            <span className="text-blue-200 font-medium text-base md:text-lg">
+              Accounting
             </span>
           </motion.div>
         </div>
@@ -160,7 +164,7 @@ const Skills = () => {
 
       {/* Full-width scrolling section with top and bottom borders */}
       <motion.div
-        className="w-screen relative border-t-2 border-b-2 border-blue-500/30 py-8 -mx-4"
+        className="w-screen relative py-8 -mx-4"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}

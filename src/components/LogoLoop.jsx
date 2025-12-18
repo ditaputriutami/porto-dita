@@ -322,17 +322,16 @@ export const LogoLoop = memo(
         const isNodeItem = "node" in item;
 
         const content = isNodeItem ? (
-          <div 
-            className="flex items-center justify-center gap-3 px-6 py-3 bg-transparent backdrop-blur-sm rounded-lg border-2 transition-all duration-300 hover:shadow-lg"
-            style={{ 
-              borderColor: item.color || '#64748b',
-              boxShadow: `0 0 0 0 ${item.color || '#64748b'}33`
+          <div
+            className="flex items-center justify-center gap-3 px-6 py-3 bg-transparent backdrop-blur-sm rounded-lg border border-blue-400 transition-all duration-300 hover:shadow-lg"
+            style={{
+              boxShadow: `0 0 0 0 rgb(96 165 250 / 0.2)`,
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = `0 4px 20px ${item.color || '#64748b'}40`;
+              e.currentTarget.style.boxShadow = `0 4px 20px rgb(96 165 250 / 0.25)`;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = `0 0 0 0 ${item.color || '#64748b'}33`;
+              e.currentTarget.style.boxShadow = `0 0 0 0 rgb(96 165 250 / 0.2)`;
             }}
           >
             <span

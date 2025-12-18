@@ -88,13 +88,13 @@ const Home = () => {
           >
             <a
               href="#projects"
-              className="px-8 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-regular hover:shadow-2xl transform hover:-translate-y-1"
             >
               View My Work
             </a>
             <a
               href="#contact"
-              className="px-8 py-3 bg-white/90 backdrop-blur-sm text-blue-600 border-2 border-white rounded-lg font-semibold hover:bg-white transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-regular hover:shadow-2xl transform hover:-translate-y-1"
             >
               Contact Me
             </a>
