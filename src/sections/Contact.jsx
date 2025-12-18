@@ -39,7 +39,7 @@ const Contact = () => {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-400 mb-4">
             Get In Touch
           </h2>
           <div className="w-20 h-1 bg-blue-400 mx-auto mb-4"></div>
@@ -108,7 +108,7 @@ const Contact = () => {
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-blue-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ const Contact = () => {
                   href="https://github.com/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-700 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition"
+                  className="w-10 h-10 bg-transparent border-2 border-blue-400/40 text-blue-300 rounded-full flex items-center justify-center hover:bg-blue-400/10 hover:border-blue-400/60 transition"
                 >
                   <svg
                     className="w-5 h-5"
@@ -158,7 +158,7 @@ const Contact = () => {
                   href="https://linkedin.com/in/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition"
+                  className="w-10 h-10 bg-transparent border-2 border-blue-400/40 text-blue-300 rounded-full flex items-center justify-center hover:bg-blue-400/10 hover:border-blue-400/60 transition"
                 >
                   <svg
                     className="w-5 h-5"
@@ -172,7 +172,7 @@ const Contact = () => {
                   href="https://twitter.com/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-blue-400 text-white rounded-full flex items-center justify-center hover:bg-blue-500 transition"
+                  className="w-10 h-10 bg-transparent border-2 border-blue-400/40 text-blue-300 rounded-full flex items-center justify-center hover:bg-blue-400/10 hover:border-blue-400/60 transition"
                 >
                   <svg
                     className="w-5 h-5"
@@ -188,7 +188,8 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div
-            className="bg-blue-500/10 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-blue-400/20"
+            className="bg-transparent backdrop-blur-md rounded-2xl p-8 border-2 border-blue-400/40"
+            style={{ boxShadow: "0 0 20px rgba(96, 165, 250, 0.2)" }}
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -209,7 +210,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-blue-900/30 border border-blue-400/30 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3 bg-transparent border-2 border-blue-400/40 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400/60 outline-none transition"
                   placeholder="Your Name"
                 />
               </div>
@@ -228,7 +229,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-blue-900/30 border border-blue-400/30 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3 bg-transparent border-2 border-blue-400/40 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400/60 outline-none transition"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -247,7 +248,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-blue-900/30 border border-blue-400/30 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3 bg-transparent border-2 border-blue-400/40 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400/60 outline-none transition"
                   placeholder="Project Inquiry"
                 />
               </div>
@@ -266,7 +267,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-2 bg-blue-900/30 border border-blue-400/30 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition resize-none"
+                  className="w-full px-4 py-3 bg-transparent border-2 border-blue-400/40 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-blue-400/60 outline-none transition resize-none"
                   placeholder="Your message here..."
                 ></textarea>
               </div>
@@ -274,7 +275,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-6 py-3 bg-transparent border-2 border-blue-400/40 text-blue-300 rounded-lg font-semibold hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
