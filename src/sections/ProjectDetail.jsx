@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
-import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaGithub,
+  FaExternalLinkAlt,
+  FaCode,
+} from "react-icons/fa";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -18,7 +23,7 @@ const ProjectDetail = () => {
           </h2>
           <button
             onClick={() => navigate("/")}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-transparent border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300"
           >
             Back to Home
           </button>
@@ -33,7 +38,7 @@ const ProjectDetail = () => {
         {/* Back Button */}
         <motion.button
           onClick={() => navigate("/#projects")}
-          className="flex items-center gap-2 p-2 border-2 border-blue-400 text-blue-400 rounded-lg hover:border-blue-500 hover:text-blue-500 transition mb-12 group"
+          className="flex items-center gap-2 px-4 py-2 border-2 border-blue-400/40 bg-transparent text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 mb-12 group"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -61,14 +66,16 @@ const ProjectDetail = () => {
             {/* Technologies Used */}
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
-                <span className="text-blue-400">💻</span>
+                <span className="p-2 border-2 border-blue-400/40 rounded-lg">
+                  <FaCode className="text-blue-400" />
+                </span>
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-4 py-2 bg-transparent border-2 border-blue-500/50 text-blue-300 rounded-lg font-medium text-sm hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/20 transition-all"
+                    className="px-4 py-2 bg-transparent border-2 border-blue-400/40 text-blue-300 rounded-lg font-medium text-sm hover:bg-blue-400/10 hover:border-blue-400/60 transition-all"
                   >
                     {tech}
                   </span>
@@ -82,16 +89,18 @@ const ProjectDetail = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="flex items-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium transform hover:-translate-y-0.5"
               >
-                <FaGithub className="text-xl" />
+                <span className="p-1.5 border-2 border-blue-400/40 rounded-lg">
+                  <FaCode className="text-lg" />
+                </span>
                 Repo Github
               </a>
               <a
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="flex items-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium transform hover:-translate-y-0.5"
               >
                 <FaExternalLinkAlt />
                 Live Preview
