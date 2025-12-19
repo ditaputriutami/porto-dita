@@ -60,3 +60,85 @@ export const projects = [
     demo: "https://demo-social.com",
   },
 ];
+
+// Import Certificate PDFs
+import sertifikatMajuBareng from "../asset/certificates/Sertifikat Maju Bareng AI.pdf";
+import sertifikatPython from "../asset/certificates/Memulai Python.pdf";
+import sertifikatDataAnalytics from "../asset/certificates/Intro Data Analytics.pdf";
+import sertifikatDataFeb from "../asset/certificates/E-Sertifikat SC Data Februari 2025.pdf";
+import sertifikatPivotTable from "../asset/certificates/E-Certif SC Pivot Table in Microsoft Excel MySkill.pdf";
+import sertifikatSQL from "../asset/certificates/Belajar Dasar SQL-Dicoding.pdf";
+import sertifikatDataScience from "../asset/certificates/Belajar Dasar Data Science-Dicoding.pdf";
+
+export const certificates = [
+  {
+    id: 1,
+    title: "Maju Bareng AI",
+    issuer: "Program Pelatihan AI",
+    year: "2024",
+    description:
+      "Sertifikat program pelatihan Artificial Intelligence yang mencakup konsep dasar hingga implementasi AI.",
+    file: sertifikatMajuBareng,
+    skills: ["AI", "Machine Learning", "Deep Learning"],
+  },
+  {
+    id: 2,
+    title: "Memulai Pemrograman dengan Python",
+    issuer: "Platform Pembelajaran",
+    year: "2024",
+    description:
+      "Sertifikat penguasaan dasar pemrograman Python, mencakup syntax, struktur data, dan OOP.",
+    file: sertifikatPython,
+    skills: ["Python", "Programming", "OOP"],
+  },
+  {
+    id: 3,
+    title: "Introduction to Data Analytics",
+    issuer: "Platform Pembelajaran",
+    year: "2024",
+    description:
+      "Sertifikat pengantar data analytics, mencakup analisis data, visualisasi, dan interpretasi data.",
+    file: sertifikatDataAnalytics,
+    skills: ["Data Analytics", "Visualization", "Analysis"],
+  },
+  {
+    id: 4,
+    title: "Data Analytics Bootcamp",
+    issuer: "MySkill",
+    year: "2025",
+    description:
+      "Sertifikat bootcamp data analytics bulan Februari 2025, mencakup analisis data komprehensif.",
+    file: sertifikatDataFeb,
+    skills: ["Data Analytics", "Excel", "Statistics"],
+  },
+  {
+    id: 5,
+    title: "Pivot Table in Microsoft Excel",
+    issuer: "MySkill",
+    year: "2024",
+    description:
+      "Sertifikat penguasaan Pivot Table di Microsoft Excel untuk analisis data yang efisien.",
+    file: sertifikatPivotTable,
+    skills: ["Excel", "Pivot Table", "Data Analysis"],
+  },
+  {
+    id: 6,
+    title: "Belajar Dasar Structured Query Language (SQL)",
+    issuer: "Dicoding",
+    year: "2024",
+    description:
+      "Sertifikat pembelajaran SQL dasar dari Dicoding, mencakup query, database design, dan manipulasi data.",
+    file: sertifikatSQL,
+    skills: ["SQL", "Database", "Query"],
+  },
+  {
+    id: 7,
+    title: "Belajar Dasar Data Science",
+    issuer: "Dicoding",
+    year: "2024",
+    description:
+      "Sertifikat pembelajaran dasar data science dari Dicoding, mencakup Python, statistics, dan ML basics.",
+    file: sertifikatDataScience,
+    skills: ["Data Science", "Python", "Statistics"],
+  },
+];

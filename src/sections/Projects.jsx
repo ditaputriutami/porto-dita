@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { projects } from "../data/projectsData";
+import { projects, certificates } from "../data/projectsData";
 import {
   FaArrowRight,
   FaExternalLinkAlt,
@@ -12,6 +12,13 @@ import { useState } from "react";
 const Projects = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("projects");
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showAllCertificates, setShowAllCertificates] = useState(false);
+
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
+  const displayedCertificates = showAllCertificates
+    ? certificates
+    : certificates.slice(0, 6);
 
   return (
     <section
@@ -74,7 +81,7 @@ const Projects = () => {
       {activeFilter === "projects" && (
         <div className="w-full max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {projects.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 className="group bg-transparent backdrop-blur-sm rounded-2xl border-2 border-blue-400/40 hover:border-blue-400/60 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10"
@@ -138,6 +145,34 @@ const Projects = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* View More Button for Projects */}
+          {projects.length > 6 && (
+            <motion.div
+              className="flex justify-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.5 }}
+            >
+              <button
+                onClick={() => setShowAllProjects(!showAllProjects)}
+                className="px-8 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 transition-all duration-300 font-medium flex items-center gap-2"
+              >
+                {showAllProjects ? (
+                  <>
+                    Show Less
+                    <FaArrowRight className="rotate-90 text-sm" />
+                  </>
+                ) : (
+                  <>
+                    View More Projects ({projects.length - 6} more)
+                    <FaArrowRight className="-rotate-90 text-sm" />
+                  </>
+                )}
+              </button>
+            </motion.div>
+          )}
         </div>
       )}
 
@@ -150,47 +185,88 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {/* Certificate Card Example */}
-            <motion.div
-              className="bg-transparent backdrop-blur-sm rounded-2xl border-2 border-blue-400/40 hover:border-blue-400/60 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 p-6"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -8 }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="p-3 border-2 border-blue-400/40 rounded-lg">
-                  <FaAward className="text-blue-400 text-2xl" />
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold text-white">
-                    Certificate Name
-                  </h3>
-                  <p className="text-gray-400 text-sm">
-                    Issued by Organization
-                  </p>
+            {displayedCertificates.map((certificate, index) => (
+              <motion.div
+                key={certificate.id}
+                className="bg-transparent backdrop-blur-sm rounded-2xl border-2 border-blue-400/40 hover:border-blue-400/60 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 p-6"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="p-3 border-2 border-blue-400/40 rounded-lg flex-shrink-0">
+                    <FaAward className="text-blue-400 text-2xl" />
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white line-clamp-2">
+                      {certificate.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      {certificate.issuer}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <p className="text-gray-400 text-sm mb-4">
-                Description of the certificate and what skills or knowledge it
-                represents.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-300 text-sm">Year: 2024</span>
-                <button className="px-4 py-2 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 transition-all duration-300 text-sm font-medium">
-                  View
-                </button>
-              </div>
-            </motion.div>
+                <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                  {certificate.description}
+                </p>
 
-            {/* Add more certificate cards as needed */}
-            <div className="col-span-full text-center py-12">
-              <p className="text-gray-400 text-lg">
-                More certificates coming soon...
-              </p>
-            </div>
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {certificate.skills.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-transparent border border-blue-400/40 text-blue-300 text-xs rounded-full font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <span className="text-blue-300 text-sm font-medium">
+                    Year: {certificate.year}
+                  </span>
+                  <a
+                    href={certificate.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 transition-all duration-300 text-sm font-medium"
+                  >
+                    View PDF
+                  </a>
+                </div>
+              </motion.div>
+            ))}
           </div>
+
+          {/* View More Button for Certificates */}
+          {certificates.length > 6 && (
+            <motion.div
+              className="flex justify-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <button
+                onClick={() => setShowAllCertificates(!showAllCertificates)}
+                className="px-8 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 transition-all duration-300 font-medium flex items-center gap-2"
+              >
+                {showAllCertificates ? (
+                  <>
+                    Show Less
+                    <FaArrowRight className="rotate-90 text-sm" />
+                  </>
+                ) : (
+                  <>
+                    View More Certificates ({certificates.length - 6} more)
+                    <FaArrowRight className="-rotate-90 text-sm" />
+                  </>
+                )}
+              </button>
+            </motion.div>
+          )}
         </motion.div>
       )}
     </section>
