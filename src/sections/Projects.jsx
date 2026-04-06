@@ -84,7 +84,7 @@ const Projects = () => {
             {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="group bg-transparent backdrop-blur-sm rounded-2xl border-2 border-blue-400/40 hover:border-blue-400/60 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10"
+                className="group h-full flex flex-col bg-transparent backdrop-blur-sm rounded-2xl border-2 border-blue-400/40 hover:border-blue-400/60 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
@@ -92,7 +92,12 @@ const Projects = () => {
                 whileHover={{ y: -8 }}
               >
                 {/* Project Image */}
-                <div className="relative overflow-hidden aspect-video bg-slate-900">
+                <button
+                  type="button"
+                  onClick={() => navigate(`/project/${project.id}`)}
+                  aria-label={`View details for ${project.title}`}
+                  className="relative overflow-hidden aspect-video bg-slate-900 w-full text-left"
+                >
                   <img
                     src={project.image}
                     alt={project.title}
@@ -104,20 +109,20 @@ const Projects = () => {
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border-2 border-blue-400/60 bg-blue-400/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <FaExternalLinkAlt className="text-blue-400 text-xl" />
                   </div>
-                </div>
+                </button>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                <div className="p-6 flex flex-1 flex-col">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 line-clamp-2 min-h-[3.5rem] group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
 
-                  <p className="text-gray-400 text-sm md:text-base mb-4 line-clamp-3">
+                  <p className="text-gray-400 text-sm md:text-base mb-4 line-clamp-3 min-h-[4.5rem]">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-6 min-h-[2.25rem]">
                     {project.technologies.slice(0, 3).map((tech, idx) => (
                       <span
                         key={idx}
@@ -136,7 +141,7 @@ const Projects = () => {
                   {/* View Details Button */}
                   <button
                     onClick={() => navigate(`/project/${project.id}`)}
-                    className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium group-hover:gap-3"
+                    className="w-full mt-auto flex items-center justify-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium group-hover:gap-3"
                   >
                     View Details
                     <FaArrowRight className="text-sm" />
