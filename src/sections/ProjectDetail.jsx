@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "../data/projectsData";
-import {
-  FaArrowLeft,
-  FaGithub,
-  FaExternalLinkAlt,
-  FaCode,
-} from "react-icons/fa";
+import { FaArrowLeft, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -94,17 +89,19 @@ const ProjectDetail = () => {
                 <span className="p-1.5 border-2 border-blue-400/40 rounded-lg">
                   <FaCode className="text-lg" />
                 </span>
-                Repo Github
+                {project.linkLabel || "Repo Github"}
               </a>
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium transform hover:-translate-y-0.5"
-              >
-                <FaExternalLinkAlt />
-                Live Preview
-              </a>
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium transform hover:-translate-y-0.5"
+                >
+                  <FaExternalLinkAlt />
+                  Live Preview
+                </a>
+              )}
             </div>
           </motion.div>
 
