@@ -15,12 +15,6 @@ export const socialLinks = [
     external: true,
   },
   {
-    label: "Email",
-    href: "ditaputriutami29@gmail.com",
-    Icon: FaEnvelope,
-    external: false,
-  },
-  {
     label: "Medium",
     href: "https://medium.com/@taditaputriutami",
     Icon: SiMedium,

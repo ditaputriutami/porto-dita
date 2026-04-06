@@ -19,15 +19,37 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
     setStatus("sending");
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      const response = await fetch("https://formspree.io/f/mzdkyozz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => setStatus(""), 3000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus(""), 3000);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setStatus("error");
       setTimeout(() => setStatus(""), 3000);
-    }, 1000);
+    }
   };
 
   return (
@@ -80,7 +102,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-white">Email</h4>
-                  <p className="text-gray-300">your.email@example.com</p>
+                  <p className="text-gray-300">ditaputriutami29@gmail.com</p>
                 </div>
               </div>
 
@@ -102,7 +124,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-white">Phone</h4>
-                  <p className="text-gray-300">+62 123 4567 8900</p>
+                  <p className="text-gray-300">+62 858 7065 4771</p>
                 </div>
               </div>
 
@@ -130,7 +152,7 @@ const Contact = () => {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-lg font-semibold text-white">Location</h4>
-                  <p className="text-gray-300">Jakarta, Indonesia</p>
+                  <p className="text-gray-300">Bantul, DI Yogyakarta</p>
                 </div>
               </div>
             </div>
@@ -255,6 +277,11 @@ const Contact = () => {
               {status === "success" && (
                 <div className="text-green-400 text-center font-medium">
                   Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="text-red-400 text-center font-medium">
+                  Failed to send message. Please try again.
                 </div>
               )}
             </form>
