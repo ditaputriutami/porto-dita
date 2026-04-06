@@ -94,7 +94,7 @@ import sertifikatDataScience from "../asset/certificates/Belajar Dasar Data Scie
 export const certificates = [
   {
     id: 1,
-    title: "Maju Bareng",
+    title: "Maju Bareng AI",
     issuer: "Program Pelatihan AI",
     year: "2024",
     description:
