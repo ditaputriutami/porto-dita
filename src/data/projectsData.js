@@ -1,6 +1,22 @@
 export const projects = [
   {
     id: 1,
+    title: "Sistem Informasi Akuntansi Kas Kembang Lestari Transport",
+    description:
+      "Sistem Informasi Akuntansi Kas adalah aplikasi berbasis web yang dirancang untuk mencatat, mengelola, dan memantau transaksi penerimaan serta pengeluaran kas pada Kembang Lestari Transport. Sistem ini membantu pembukuan keuangan perusahaan transportasi menjadi lebih terstruktur, transparan, serta menghasilkan laporan akuntansi secara otomatis dan akurat.",
+    technologies: [
+      "PHP",
+      "Laravel",
+      "Tailwind CSS",
+      "MySQL",
+      "Chart.js",
+      "Sistem Informasi Akuntansi",
+    ],
+    image: "/image/Kb_Transport.jpeg",
+    
+  },
+  {
+    id: 2,
     title: "Accounting System Implementation (MYOB) – PT. BATA",
     description:
       "Simulasi implementasi sistem akuntansi pada perusahaan dagang menggunakan MYOB. Project ini mencakup pencatatan transaksi, pengelolaan persediaan, serta penyusunan laporan keuangan secara sistematis berdasarkan studi kasus PT. BATA.",
@@ -16,7 +32,7 @@ export const projects = [
     demo: "",
   },
   {
-    id: 2,
+    id: 3,
     title: "SIPEBA-Sistem Informasi Persediaan Barang",
     description:
       "SIPEBA adalah aplikasi berbasis web untuk mengelola persediaan barang pada Bagian Perencanaan dan Keuangan Sekretariat Daerah Kabupaten Bantul, yang membantu pencatatan stok menjadi lebih terstruktur, akurat, dan efisien.",
@@ -32,7 +48,7 @@ export const projects = [
     demo: "https://demo-taskapp.com",
   },
   {
-    id: 3,
+    id: 4,
     title: "SIVIRA – Sistem Informasi Verifikasi Realisasi Anggaran",
     description:
       "SIVIRA adalah aplikasi berbasis web untuk membantu proses verifikasi realisasi anggaran pada Bagian Perencanaan dan Keuangan Sekretariat Daerah Kabupaten Bantul, sehingga proses pengecekan data menjadi lebih cepat, terstruktur, dan akurat.",
@@ -47,7 +63,7 @@ export const projects = [
     demo: "https://demo-weather.com",
   },
   {
-    id: 4,
+    id: 5,
     title: "Portfolio Website",
     description:
       "Website portfolio modern dengan animasi smooth, dark mode, dan responsive design untuk menampilkan projects.",
@@ -57,7 +73,7 @@ export const projects = [
     demo: "https://demo-portfolio.com",
   },
   {
-    id: 5,
+    id: 6,
     title: "Bike Sales Analysis – Data Analyst Project",
     description:
       "Analisis data penjualan sepeda menggunakan Python untuk mengidentifikasi tren penjualan, performa toko, dan kategori produk berdasarkan data historis.",
@@ -66,7 +82,7 @@ export const projects = [
     github: "https://github.com/ditaputriutami/Pizza-Sales-Data-Analysis.git",
   },
   {
-    id: 6,
+    id: 7,
     title: "Pizza Sales Performance Insights",
     description:
       "Analisis data penjualan pizza menggunakan Python untuk mengidentifikasi tren penjualan, produk terlaris, serta pola pembelian pelanggan guna mendukung pengambilan keputusan bisnis.",

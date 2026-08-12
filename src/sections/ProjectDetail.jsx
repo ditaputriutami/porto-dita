@@ -80,17 +80,19 @@ const ProjectDetail = () => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium transform hover:-translate-y-0.5"
-              >
-                <span className="p-1.5 border-2 border-blue-400/40 rounded-lg">
-                  <FaCode className="text-lg" />
-                </span>
-                {project.linkLabel || "Repo Github"}
-              </a>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-blue-400/5 border-2 border-blue-400/40 text-blue-300 rounded-lg hover:bg-blue-400/10 hover:border-blue-400/60 hover:text-blue-200 transition-all duration-300 font-medium transform hover:-translate-y-0.5"
+                >
+                  <span className="p-1.5 border-2 border-blue-400/40 rounded-lg">
+                    <FaCode className="text-lg" />
+                  </span>
+                  {project.linkLabel || "Repo Github"}
+                </a>
+              )}
               {project.demo && (
                 <a
                   href={project.demo}
