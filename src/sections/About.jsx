@@ -41,18 +41,19 @@ const About = () => {
               My name is Dita Putri Utami
             </h3>
             <p className="text-gray-300 mb-5 leading-relaxed text-sm md:text-base">
-              I am an Accounting Information Systems student at the Digital
-              Technology University of Indonesia with a strong interest in data
-              processing and the field of accounting. I continuously learn how
-              data can be used to generate accurate insights and support better
-              decision-making.
+              Saya adalah mahasiswa Sistem Informasi Akuntansi di Digital
+              Technology University of Indonesia yang memiliki minat besar
+              terhadap pengolahan data dan bidang akuntansi. Saya terus
+              mempelajari bagaimana data dapat dimanfaatkan untuk menghasilkan
+              wawasan yang akurat serta mendukung pengambilan keputusan yang
+              lebih baik.
             </p>
             <p className="text-gray-300 mb-8 leading-relaxed text-sm md:text-base">
-              I have a passion for Data Analysis and Accounting, especially in
-              connecting data insights with business needs. By combining
-              technical skills and financial understanding, I aim to grow into
-              someone who can provide effective and valuable data-driven
-              solutions.
+              Saya memiliki minat besar terhadap akuntansi dan analisis data,
+              khususnya dalam menghubungkan wawasan data dengan kebutuhan
+              bisnis. Dengan memadukan keterampilan teknis dan pemahaman
+              finansial, saya bertekad untuk berkembang menjadi sosok yang mampu
+              menghadirkan solusi berbasis data yang efektif dan bernilai.
             </p>
 
             {/* Stats Grid - 2x2 */}

@@ -32,22 +32,6 @@ export const projects = [
     demo: "",
   },
   {
-    id: 3,
-    title: "SIPEBA-Sistem Informasi Persediaan Barang",
-    description:
-      "SIPEBA adalah aplikasi berbasis web untuk mengelola persediaan barang pada Bagian Perencanaan dan Keuangan Sekretariat Daerah Kabupaten Bantul, yang membantu pencatatan stok menjadi lebih terstruktur, akurat, dan efisien.",
-    technologies: [
-      "PHP",
-      "Bootstrap",
-      "Chart.js",
-      "MySQL",
-      "Accounting Information System",
-    ],
-    image: "/image/SIPEBA.png",
-    github: "https://github.com/ditaputriutami/sipeba-bantul.git",
-    demo: "https://demo-taskapp.com",
-  },
-  {
     id: 4,
     title: "SIVIRA – Sistem Informasi Verifikasi Realisasi Anggaran",
     description:
